@@ -3,17 +3,36 @@
     margin: 0;
     border: 0;
 }
+
+body {
+    overflow: hidden;
+}
 @keyframes spin {
-    0% {
-        transform: translate(-50%,-50%), rotate(0deg);
+    from {
+        transform: translate(-50%,-50%) rotate(0deg);
     }
-    100% {
-        transform: translate(-50%,-50%), rotate(360deg);
+    to {
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+}
+@keyframes gradient {
+    from {
+        background-position: 0%,100%;
+    }
+    50% {
+        background-position: 100%,100%;
+    }
+    to {
+        background-position: 0%,100%;
     }
 }
 nav {
     height: 5vw;
     border-bottom:10px black solid;
+    background-size: 300%,300%;
+    transition: all 0.2s;
+    background-image: linear-gradient(90deg, #00000000, #00000000);
+    background-size: 500%,500%;
 }
 nav h1 {
     position: absolute;
@@ -26,17 +45,64 @@ nav h1 {
 .images {
     position: absolute;
     left: 50vw;
-    top: 25vw;
+    top: 50vw;
     transform: translate(-50%,-50%);
-    animation: spin 60s infinite;
-}
-.wholePizza {
-    display: block;
+    animation: spin;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
 }
 
-.slicedPizza {
-    display: none;
+
+.anchor {
+    font-family: Bungee;
+    position: absolute;
+    background-image: linear-gradient(90deg, #00000000, #00000000);
+    background-size: 500%,500%;
+    top: 85vh;
+    left: 50vw;
+    transform: translate(-50%,-50%);
+    font-size: 1vw;
+    border: 7px black solid;
+    cursor: pointer;
+    transition: all 0.2s;
 }
+.anchor:hover {
+    transition: all 0.2s;
+    animation: gradient 5s ease 0s infinite;
+    background-image: linear-gradient(90deg, #00a2ff, #15ff00,#00a2ff);
+}
+
 .pizzaSlice {
-    display: none;
+    opacity: 0;
+    display: block;
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%,-50%);
+    animation: spin;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+}
+
+.showBuilder:hover ~ nav {
+    animation: gradient 5s ease 0s infinite;
+    background-image: linear-gradient(90deg, #00a2ff, #15ff00,#00a2ff);
+    color: white;
+    border-bottom: rgb(0, 0, 0) 10px solid;
+}
+.showBuilder:hover ~ .wholePizza {
+    opacity: 0;
+}
+.showBuilder:hover ~ .slicedPizza{
+    opacity: 100;
+}
+
+.builder {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 50;
+    top: 10vh;
+    transition: all 2s;
 }
