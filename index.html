@@ -15,39 +15,58 @@
 </head>
 
 <body>
-    <nav>
+    <button class="showBuilder" id="showBuilder">Order NOW</button>
+    <nav id="nav">
         <h1 class="logo">B&W</h1>
     </nav>
-    <div class="images">
-        <img class="wholePizza" src="images/Whole Pizza.svg" alt="A whole pizza">
-        <img class="slicedPizza" src="images/Sliced Pizza.svg" alt="A whole pizza with a slice missing">
-        <div id="builder" class="builder">
-            <div id="pizzaForm">
-                <h2>Cheese Type</h2>
-                <Select id="cheese">
-                    <option value="Mozzerella">Mozzerella</option>
-                    <option value="Cheddar">Cheddar</option>
-                </Select>
-                <h2>Meat Type</h2>
-                <Select id="meat">
-                    <option value="Pepperroni">Pepperroni</option>
-                    <option value="Sausage">Sausage</option>
-                </Select>
-                <h2>Topping 1</h2>
-                <Select id="topOne">
-                    <option value="Pineapple">Pineapple</option>
-                    <option value="Tomato">Tomato</option>
-                </Select>
-                <h2>Topping 2</h2>
-                <Select id="topTwo">
-                    <option value="Olive">Olive</option>
-                    <option value="Pepper">Pepper</option>
-                </Select>
-            </div>
-            <div id="pizzas"></div>
-            <div id="prices"></div>
+    <img class="wholePizza" src="images/Whole Pizza.svg" alt="A whole pizza">
+    <img class="slicedPizza" src="images/Sliced Pizza.svg" alt="A whole pizza with a slice missing">
+    <div id="builder" class="builder">
+        <form id="pizzaForm">
+            <h2>Size:</h2>
+            <Select id="size">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </Select>
+            <h2>Cheese Type</h2>
+            <Select id="cheese">
+                <option value="select">~None~</option>
+                <option value="Mozzerella">Mozzerella</option>
+                <option value="Cheddar">Cheddar</option>
+            </Select>
+            <h2>Meat Type</h2>
+            <Select id="meat">
+                <option value="select">~None~</option>
+                <option value="Pepperroni">Pepperroni</option>
+                <option value="Sausage">Sausage</option>
+            </Select>
+            <h2>Topping 1</h2>
+            <Select id="topOne">
+                <option value="select">~None~</option>
+                <option value="Pineapple">Pineapple</option>
+                <option value="Tomato">Tomato</option>
+            </Select>
+            <h2>Topping 2</h2>
+            <Select id="topTwo">
+                <option value="select">~None~</option>
+                <option value="Olive">Olive</option>
+                <option value="Pepper">Pepper</option>
+            </Select>
+            <button id="resetButton" type="reset">Reset Pizza</button>
+            <button id="topSubmitButton" type="submit">Submit Pizza</button>
+        </form>
+        <div id="pizzas">
+            <p id="appearanceP">Pizzas will appear here...</p>
+        </div>
+        <div id="prices">
+            <h1>Total Price:</h1>
+            <p id="priceP" class="price priceSize">$___</p>
+            <h1>Number of Pizzas:</h1>
+            <p id="numberP" class="price pizzaCount">___</p>
         </div>
     </div>
+
 </body>
 
 </html>

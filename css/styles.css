@@ -3,9 +3,9 @@
     margin: 0;
     border: 0;
 }
-
 body {
     overflow: hidden;
+
 }
 @keyframes spin {
     from {
@@ -42,10 +42,23 @@ nav h1 {
     left: 50vw;
     transform: translate(-50%);
 }
-.images {
+.wholePizza {
+    opacity: 100;
     position: absolute;
     left: 50vw;
-    top: 50vw;
+    top: 50vh;
+    transform: translate(-50%,-50%);
+    animation: spin;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+}
+
+.slicedPizza {
+    opacity: 0;
+    display: block;
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
     transform: translate(-50%,-50%);
     animation: spin;
     animation-duration: 60s;
@@ -53,7 +66,7 @@ nav h1 {
 }
 
 
-.anchor {
+.showBuilder {
     font-family: Bungee;
     position: absolute;
     background-image: linear-gradient(90deg, #00000000, #00000000);
@@ -66,29 +79,11 @@ nav h1 {
     cursor: pointer;
     transition: all 0.2s;
 }
-.anchor:hover {
+.showBuilder:hover {
     transition: all 0.2s;
-    animation: gradient 5s ease 0s infinite;
-    background-image: linear-gradient(90deg, #00a2ff, #15ff00,#00a2ff);
-}
-
-.pizzaSlice {
-    opacity: 0;
-    display: block;
-    position: absolute;
-    left: 50vw;
-    top: 50vh;
-    transform: translate(-50%,-50%);
-    animation: spin;
-    animation-duration: 60s;
-    animation-iteration-count: infinite;
-}
-
-.showBuilder:hover ~ nav {
-    animation: gradient 5s ease 0s infinite;
-    background-image: linear-gradient(90deg, #00a2ff, #15ff00,#00a2ff);
     color: white;
-    border-bottom: rgb(0, 0, 0) 10px solid;
+    animation: gradient 5s ease 0s infinite;
+    background-image: linear-gradient(90deg, #00a2ff, #15ff00,#00a2ff);
 }
 .showBuilder:hover ~ .wholePizza {
     opacity: 0;
@@ -103,7 +98,7 @@ nav h1 {
     height: 100vh;
     background-color: black;
     z-index: 50;
-    top: 10vh;
+    top: 100vh;
     transition: all 1s;
 }
 
@@ -121,9 +116,26 @@ nav h1 {
 #pizzaForm h2 {
     border-bottom: 5px black solid;
 }
+select {
+    width: 200px;
+    font-size: 20px;
+    font-family: IBM Plex Mono;
+}
 
-
-
+option {
+    font-family: IBM Plex Mono;
+}
+#topSubmitButton, #resetButton {
+    width: 150px;
+    font-size: 20px;
+    position: absolute;
+    top: 95%;
+    left: 75%;
+    transform: translate(-50%,-50%);
+}
+#resetButton {
+    top: 90%;
+}
 #prices {
     position: absolute;
     top: 1vh;
@@ -131,4 +143,55 @@ nav h1 {
     width: 20vw;
     height: 88vh;
     background-color: white;
+    font-family: IBM Plex Mono;
+    font-size: 1vw;
+}
+
+#pizzas {
+    width: 55.5vw;
+    height: 86vh;
+    top: 1vh;
+    position: absolute;
+    left: 22vw;
+    border: 10px solid rgb(255, 255, 255);
+    color: white;
+    font-family: Bungee;
+    text-align: center;
+    overflow-y: scroll;
+}
+
+.pizzaDiv {
+    width: 200px;
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    color: black;
+    border-radius: 10px;
+}
+
+.price {
+    color: green;
+    border-top: 3px black solid;
+    font-family: Bungee;
+}
+.size {
+    color: aqua;
+    border-bottom: 3px black solid;
+}
+.cheese {
+    color: #ffd900;
+    border-bottom: 3px black solid;
+}
+.meat {
+    color: red;
+    border-bottom: 3px black solid;
+}
+.priceSize {
+    font-size: 30px;
+}
+.pizzaCount {
+    color: red;
+    border-top: 3px black solid;
+    font-size: 30px;
 }
